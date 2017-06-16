@@ -8,5 +8,8 @@
 
 import Foundation
 
-print("Hello, World!")
+var obj1 = MyClass01(x:2)
+print(obj1[2])
+obj1.x = 3
+print(obj1[7])
 
