@@ -31,6 +31,16 @@ class MyClass01 {
 //---------------------------
 class Super1 {
    private var x = 10 //內外看不到
+    var y = 2
+    var z = 2
+    var a:Int {
+        get{
+            return 2
+        }
+        set{
+        }
+    }
+
     func f1() {
         print("Super1:f1()")
     }
@@ -42,6 +52,28 @@ class Super1 {
 }
 class Sub11 : Super1 {
     var x = 3
+    override var y:Int {
+        get{
+            return 3
+        }
+        set{
+        }
+    }
+    override var z:Int {
+        willSet{
+        }
+        didSet{
+        }
+    }
+    override var a:Int {
+        get{
+            return 3
+        }
+        set{
+            
+        }
+    }
+
     override func f1() {
         super.f1() //與編譯無關可加不加 邏輯有關
     print("Sub11:f1()")
@@ -54,4 +86,25 @@ class Sub11 : Super1 {
         super.f1() //爸爸的
         return 1.0
     }
+}
+//--------------------
+final class Super2 {
+    
+}
+//class Sub21 : Super2 {
+//} +final 無法再繼承 
+//---------------------
+//多型
+class Super3 {
+    func f1(){print("Super3:f1()")}
+}
+class Sub31 : Super3 {
+    override func f1(){print("Sub31:f1()")}
+    func f2(){print("Sub31:f2()")}
+    func f3(){print("Sub31:f3()")}
+}
+class Sub32 : Super3 {
+    override func f1(){print("Sub3:f1()")}
+    func f2(){print("Sub32:f2()")}
+    func f4(){print("Sub31:f4()")}
 }
